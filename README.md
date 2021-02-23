@@ -1,4 +1,4 @@
-# README
+# TexAT Local Cluster
 This repository contains the necessary scripts to launch a dask cluster using local shared storage.
 
 ## Usage
