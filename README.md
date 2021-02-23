@@ -1,4 +1,4 @@
-# Local Cluster
+# README
 This repository contains the necessary scripts to launch a dask cluster using local shared storage.
 
 ## Usage
