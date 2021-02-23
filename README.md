@@ -7,11 +7,16 @@ This repository contains the necessary scripts to launch a dask cluster using lo
 3. Launch the worker(s) on each machine using `launch-scheduler`
    - See script for environment variable arguments.
 
+## Requirements
+* `texat-runtime.sif` on `PATH`
+* `texat-sim-data` in `share/`
+
 ## Note
 This repository uses direnv to set the PATH variable appropriately. If direnv is not available, use `export PATH="$PWD/bin:$PWD/scripts:$PATH"`.
 
 ### Architecture
-In the `bin` directory, `python3` and `python` point to the `texat` shell script. This launches `texat-runtime.sif` (which *MUST* be on `PATH` somewhere), which is a Singularity image built from the texat Dockerfile `runtime` target. 
+In the `bin` directory, `python3` and `python` point to the `texat` shell script. This launches `texat-runtime.sif`, which is a Singularity image built from the texat Dockerfile `runtime` target. 
+
 Singularity is used because it simplifies the commandline (shorter binding), runs as user (avoids UID mapping), is easily launched without importing, and is a requirement to launch on the SLURM cluster (therefore we use it here too).
 
 ### SSHFS
