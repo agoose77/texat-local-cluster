@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -eu
+
+exec python -m distributed.cli.dask_scheduler --scheduler-file /mnt/backend/scheduler.json

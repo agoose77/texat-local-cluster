@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -e
+
+this_dir=$(dirname "${BASH_SOURCE}")
+parent_dir=$(dirname "${this_dir}")
+
+export SINGULARITY_CLEANENV=1
+
+SINGULARITY_BIND="$SINGULARITY_BIND,${parent_dir}/shared:/mnt/shared"
+SINGULARITY_BIND="$SINGULARITY_BIND,${parent_dir}/backend:/mnt/backend"
+SINGULARITY_BIND="$SINGULARITY_BIND,${parent_dir}/share/texat-sim-data:/opt/geant4-data"
+export SINGULARITY_BIND
+
+exec "${this_dir}"/texat.sif "$@"
+
+
