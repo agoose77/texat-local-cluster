@@ -3,6 +3,7 @@ This repository contains the necessary scripts to launch a dask cluster using lo
 
 ## Usage
 1. Ensure that this directory is accessible on all necessary hosts
+   - Use rsync or a shared file system.
 2. Launch the scheduler on a machine using `launch-scheduler`
 3. Launch the worker(s) on each machine using `launch-scheduler`
    - See script for environment variable arguments.
@@ -18,6 +19,8 @@ This repository uses direnv to set the PATH variable appropriately. If direnv is
 In the `bin` directory, `python3` and `python` point to the `texat` shell script. This launches `texat-runtime.sif`, which is a Singularity image built from the texat Dockerfile `runtime` target. 
 
 Singularity is used because it simplifies the commandline (shorter binding), runs as user (avoids UID mapping), is easily launched without importing, and is a requirement to launch on the SLURM cluster (therefore we use it here too).
+
+The `shared` and `backend` directories are placeholders for the small and large file storage respectively. It is unlikely that these will be individually mapped instead of this entire directory being added to shared storage.
 
 ### SSHFS
  For local clusters, where bandwidth is large, we might disable compression:
