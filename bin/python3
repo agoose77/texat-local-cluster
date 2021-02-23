@@ -1,1 +1,4 @@
-texat
+#!/usr/bin/env bash
+set -e
+
+exec texat python -u "$@"
