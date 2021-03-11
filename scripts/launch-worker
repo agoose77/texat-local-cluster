@@ -6,7 +6,7 @@ mem_per_cpu=${MEM_PER_CPU:-"1GB"}
 
 # Start a worker with one process per CPU
 exec python -m distributed.cli.dask_worker \
---scheduler-file /mnt/backend/scheduler.json \
+--scheduler-file /mnt/data/scheduler.json \
 --local-directory /tmp \
 --nthreads 1 \
 --nprocs "${n_cpu}" \
