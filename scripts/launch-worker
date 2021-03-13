@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 set -eu
 
-n_cpu="${CPUS_PER_TASK:-1}"
-mem_per_cpu=${MEM_PER_CPU:-"1GB"}
-
 # Start a worker with one process per CPU
 exec python -m distributed.cli.dask_worker \
---scheduler-file /mnt/data/scheduler.json \
---local-directory /tmp \
---nthreads 1 \
---nprocs "${n_cpu}" \
---memory-limit "${mem_per_cpu}"
+--scheduler-file=/mnt/data/scheduler.json \
+--local-directory=/tmp \
+--nthreads=1 \
+--nprocs="${CPUS_PER_TASK:-1}" \
+--memory-limit="${MEM_PER_CPU:-1GB}" \
+"$@"

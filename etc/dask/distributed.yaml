@@ -1,0 +1,9 @@
+distributed:
+  worker:
+    # Fractions of worker memory at which we take action to avoid memory blowup
+    # Set any of the lower three values to False to turn off the behavior entirely
+    memory:
+      target: 0.60  # target fraction to stay below
+      spill: 0.80  # fraction at which we spill to disk
+      terminate: 0.95  # fraction at which we terminate the worker
+      pause: 1.0  # fraction at which we pause worker threads

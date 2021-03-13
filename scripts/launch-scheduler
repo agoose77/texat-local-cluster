@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 set -eu
 
-exec python -m distributed.cli.dask_scheduler --scheduler-file /mnt/data/scheduler.json
+exec python -m distributed.cli.dask_scheduler \
+--scheduler-file /mnt/data/scheduler.json \
+"$@"
